@@ -15,5 +15,8 @@ public class DynamicArrayTestBed {
         for(int i=0;i<myList.size();i++){
             System.out.println(myList.get(i));
         }
+
+        int info = myList.indexOff(20);
+        System.out.println(info);
     }
 }

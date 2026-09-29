@@ -31,6 +31,8 @@ public class DynamicArray {
         return size;
     }
 
+
+
     public int indexOff(int target){
         for(int i = 0; i<size;i++){
             if(data[i] == target){
