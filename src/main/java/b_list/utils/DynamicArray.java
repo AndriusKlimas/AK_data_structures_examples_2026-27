@@ -24,6 +24,9 @@ public class DynamicArray {
     }
 
     public int get(int index){
+        if(index < 0 || index >= size){
+            throw new IndexOutOfBoundsException("Index " + index + " is outside bounds of array");
+        }
         return data[index];
     }
 
@@ -34,11 +37,12 @@ public class DynamicArray {
 
 
     public int indexOff(int target){
-        for(int i = 0; i<size;i++){
+        for (int i = 0; i < size; i++) {
             if(data[i] == target){
                 return i;
             }
         }
+
         return -1;
     }
 

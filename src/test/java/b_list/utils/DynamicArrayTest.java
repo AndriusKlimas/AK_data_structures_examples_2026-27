@@ -27,7 +27,29 @@ class DynamicArrayTest {
         );
     }
 
-    @org.junit.jupiter.api.Test
-    void indexOff() {
+    @Test
+    void get_AccessAfterList(){
+        DynamicArray myList = new DynamicArray();
+        myList.add(5);
+        int size2 = myList.size();
+        int size3 = size2 +1;
+        assertThrows(IndexOutOfBoundsException.class,
+                () -> {
+                    myList.get(size3);
+                }, "Incorrect (or no) exception thrown"
+        );
+    }
+
+
+
+    @Test
+    void indexOffWithinList() {
+        DynamicArray myList = new DynamicArray();
+        myList.add(10);
+        myList.add(20);
+        myList.add(30);
+        myList.add(20);
+
+        assertEquals(1, myList.indexOff(20));
     }
 }
