@@ -41,4 +41,37 @@ public class DynamicArray {
         }
         return -1;
     }
+
+    public int remove(int index){
+        int removed = data[index];
+        for (int i=index;i<size -1;i++){
+            data[i] = data[i+1];
+        }
+        data[size-1] =0;
+        size--;
+
+        return removed;
+    }
+
+    public int insertion(int index, int toAdd){
+        validateIndex(index);
+
+        ensureCapacity();
+
+        for(int i=size;i>index;i--){
+            data[i] = data[i-1];
+        }
+
+        //other way to do it
+        //System.arraycopy(data,index,data,index+1,(size-index));
+        size++;
+        data[index] = toAdd;
+        return toAdd;
+    }
+
+    private void validateIndex(int index){
+        if(index<0|index>=size){
+            throw new IndexOutOfBoundsException("Index "+ index + " Is out of bounds of list");
+        }
+    }
 }

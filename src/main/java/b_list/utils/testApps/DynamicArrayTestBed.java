@@ -4,6 +4,7 @@ import b_list.utils.DynamicArray;
 
 import java.util.Random;
 
+
 public class DynamicArrayTestBed {
     static void main(String[] args){
         DynamicArray myList = new DynamicArray();
@@ -18,5 +19,19 @@ public class DynamicArrayTestBed {
 
         int info = myList.indexOff(20);
         System.out.println(info);
+
+        int info2 = myList.remove(3);
+        System.out.println("removed = "+info2);
+
+        for(int i=0;i<myList.size();i++){
+            System.out.println(myList.get(i));
+        }
+
+        int info3 = myList.insertion(3,20);
+        System.out.println("Added = " +info3);
+
+        for(int i=0;i<myList.size();i++){
+            System.out.println(myList.get(i));
+        }
     }
 }
