@@ -1,5 +1,7 @@
 package b_list.utils;
 
+import java.lang.classfile.ClassTransform;
+
 public class DynamicArray {
     private static final int EXPANSION_MULTIPLIER=2;
     private int size = 0;
@@ -78,4 +80,14 @@ public class DynamicArray {
             throw new IndexOutOfBoundsException("Index "+ index + " Is out of bounds of list");
         }
     }
+
+    public int lastIndexOff(int target){
+        for(int i=size -1; i>=0;i--){
+            if(data[i]==target){
+                return i;
+            }
+        }
+        return -1;
+    }
+
 }
