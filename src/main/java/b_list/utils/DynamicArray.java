@@ -90,4 +90,24 @@ public class DynamicArray {
         return -1;
     }
 
+    public int subsection(int start, int end){
+        validateIndex(start);
+        validateIndex(end -1);
+        int count = 0;
+
+        if(start<=end){
+            throw new IllegalArgumentException("Start is less then end");
+        }
+        DynamicArray newArray = new DynamicArray();
+        for(int i=start;i<end;i++){
+            newArray.add(data[i]);
+
+        }
+
+
+
+    }
+
+
+
 }
