@@ -104,7 +104,7 @@ public class DynamicArray {
 
         }
 
-
+        return count;
 
     }
 
