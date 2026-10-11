@@ -109,4 +109,25 @@ public class DynamicArrayString {
         return count;
     }
 
+    public void clear(){
+        for (int i = 0; i < size; i++) {
+            data[i] = null;
+        }
+        size = 0;
+    }
+
+    public DynamicArrayString deduplicate(){
+        DynamicArrayString newArray = new DynamicArrayString();
+        for (int i = 0; i < size; i++) {
+            String current = data[i];
+            for (int j = 0; j < size; j++) {
+                if(data[j].equals(current)){
+                    newArray.add(current);
+                }
+            }
+        }
+        // i need to add a filtering process, currnetly all in order, just need to remove duplicates
+        return newArray;
+    }
+
 }
