@@ -67,5 +67,32 @@ public class DynamicArrayString {
         size++;
     }
 
+//    public void add(int index, String toAdd){
+//
+//        System.arraycopy(data,index,data,index+1,(size-index));
+//
+//        size++;
+//        data[index] = toAdd;
+//
+//        }
+
+    /* puts value (string) into specified array location (index)
+
+    args:
+        index - location to place the value
+        toAdd - the String provided
+     */
+    public String set(int index, String toAdd){
+
+        String removed = "";
+        removed = data[index];
+        data[index] = toAdd;
+
+        return removed;
+    }
+
+    public  remove(int index){
+
+    }
 
 }
