@@ -130,4 +130,17 @@ public class DynamicArrayString {
         return newArray;
     }
 
+
+    public void join(String[] otherArray){
+        for (int i = 0; i < otherArray.length; i++) {
+            String current = otherArray[i];
+            if (current != null) {
+                add(current);
+            }
+
+        }
+
+    }
+
+
 }
