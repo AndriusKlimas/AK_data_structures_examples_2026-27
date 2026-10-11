@@ -91,14 +91,7 @@ public class DynamicArrayString {
         return removed;
     }
 
-    /* removed the string from index provided, and sets it to null
-
-    args: index - the position for item to be removed
-    returns: the item removed from array
-     */
-    public String remove(int index){
-        String removed = data[index];
-        data[index] = null;
+    public  remove(int index){
 
         return removed;
 
