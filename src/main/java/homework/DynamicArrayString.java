@@ -91,8 +91,9 @@ public class DynamicArrayString {
         return removed;
     }
 
-    public  remove(int index){
-
+    public String remove(int index){
+        String removed = data[index];
+        data[index] = null;
         return removed;
 
     }
