@@ -128,22 +128,14 @@ public class DynamicArrayString {
 
     public DynamicArrayString deduplicate(){
         DynamicArrayString newArray = new DynamicArrayString();
-        DynamicArrayString newNewArray = new DynamicArrayString();
         for (int i = 0; i < size; i++) {
             String current = data[i];
-            for (int j = 0; j < size; j++) {
-                if(data[j].equals(current)){
-                    newArray.add(current);
-                }
+            if(newArray.indexOf(current) == -1){
+                newArray.add(current);
             }
         }
-        for (int i = 0; i < newArray.size; i++) {
-            String current = newArray.data[i];
-            if(newNewArray.indexOf(current) == -1){
-                newNewArray.add(current);
-            }
-        }
-        return newNewArray;
+
+        return newArray;
         // i need to add a filtering process, currnetly all in order, just need to remove duplicates
     }
 
