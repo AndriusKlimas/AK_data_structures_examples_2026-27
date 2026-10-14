@@ -68,6 +68,7 @@ public class DynamicArrayString {
         value - the string that should be added to end of the array
      */
     public void add(String value){
+        validateString(value);
         ensureCapacity();
 
         data[size] = value;
@@ -190,6 +191,18 @@ public class DynamicArrayString {
             if (current != null) {
                 add(current);
             }
+        }
+    }
+
+    private void validateIndex(int index){
+        if(index<0|index>=size){
+            throw new IndexOutOfBoundsException("Index "+ index + " Is out of bounds of list");
+        }
+    }
+
+    private void validateString(String element){
+        if(element == null){
+            throw new IllegalArgumentException("Element cannot be null");
         }
     }
 
