@@ -199,12 +199,22 @@ public class DynamicArrayString {
         }
     }
 
+    /* checks if the index provided is within the array
+
+    return:
+        Error if outside array
+     */
     private void validateIndex(int index){
         if(index<0||index>=size){
             throw new IndexOutOfBoundsException("Index "+ index + " Is out of bounds of list");
         }
     }
 
+    /* checks if the string provided is null
+
+    return:
+        Error if null
+     */
     private void validateString(String element){
         if(element == null){
             throw new IllegalArgumentException("Element cannot be null");
