@@ -121,9 +121,8 @@ public class DynamicArrayString {
     }
 
     public void clear(){
-        for (int i = 0; i < size; i++) {
-            data[i] = null;
-        }
+        DynamicArrayString clear = new DynamicArrayString();
+        data = clear.data;
         size = 0;
     }
 
