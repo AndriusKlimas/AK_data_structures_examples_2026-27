@@ -93,16 +93,27 @@ public class DynamicArrayString {
 
     public String remove(int index){
         String removed = data[index];
-        data[index] = null;
+        for (int i = index; i < size - 1; i++) {
+            data[i] = data[i + 1];
+        }
+        data[size - 1] = null;
+        size--;
         return removed;
-
     }
+
+
     public int removeAll(String target){
         int count = 0;
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < size;) {
             if(data[i].equals(target)){
+                for (int j = i; j < size - 1; j++) {
+                    data[j] = data[j + 1];
+                }
+                data[size - 1] = null;
+                size--;
                 count++;
-                data[i] = null;
+            } else {
+                i++;
             }
 
         }
