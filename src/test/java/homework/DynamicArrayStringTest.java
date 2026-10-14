@@ -11,13 +11,13 @@ class DynamicArrayStringTest {
         DynamicArrayString myList = new DynamicArrayString();
         myList.add("A");
         myList.add("X");
-        myList.add("X");
+        myList.add("C");
         myList.add("B");
 
         int removed = myList.removeAll("X");
 
-        assertEquals(2, removed);
-        assertEquals(2, myList.size());
+        assertEquals(1, removed);
+        assertEquals(3, myList.size());
         assertEquals("A", myList.get(0));
         assertEquals("B", myList.get(1));
     }
@@ -40,5 +40,8 @@ class DynamicArrayStringTest {
         assertEquals("B", myList.get(3));
 
     }
+    // need one for null
+    // need one fo multiple
+    // need one for multiple in a line
 
 }
