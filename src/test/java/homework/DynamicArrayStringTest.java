@@ -27,7 +27,7 @@ class DynamicArrayStringTest {
         DynamicArrayString myList = new DynamicArrayString();
         myList.add("A");
         myList.add("X");
-        myList.add("X");
+        myList.add("C");
         myList.add("B");
 
         int removed = myList.removeAll("Y");
