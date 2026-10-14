@@ -20,8 +20,10 @@ public class DynamicArrayString {
         }
     }
 
-    /* returns the size of array only amount of slots used
+    /* gets the amount of elements in the array
 
+    return:
+        size - the amount of elements in the array
      */
     public int size(){
         return size;
@@ -30,8 +32,10 @@ public class DynamicArrayString {
 
     /* finds the iteam at the index spot stated
 
-    args: index - the slot to find and to return
-    return: the item found in the array slot stated
+    args:
+        index - get the element in the index provided
+    return:
+        data - the item found in the array slot stated
      */
     public String get(int index){
         if(index < 0 || index >= size){
@@ -81,16 +85,25 @@ public class DynamicArrayString {
     args:
         index - location to place the value
         toAdd - the String provided
+
+     return:
+        removed: the element that was removed
      */
     public String set(int index, String toAdd){
 
-        String removed = "";
-        removed = data[index];
+        String removed = data[index];
         data[index] = toAdd;
 
         return removed;
     }
 
+    /* removes the element at the specific index
+
+    args:
+        index - the location of element to remove
+    return:
+        removed - the element that was removed
+     */
     public String remove(int index){
         String removed = data[index];
         for (int i = index; i < size - 1; i++) {
@@ -101,7 +114,14 @@ public class DynamicArrayString {
         return removed;
     }
 
+    /* removed all elements that are hte same as target
 
+    args:
+        target - the element to be removed
+
+    return:
+        count - the number of elements removed
+     */
     public int removeAll(String target){
         int count = 0;
         for (int i = 0; i < size;) {
@@ -146,9 +166,7 @@ public class DynamicArrayString {
             if (current != null) {
                 add(current);
             }
-
         }
-
     }
 
 
