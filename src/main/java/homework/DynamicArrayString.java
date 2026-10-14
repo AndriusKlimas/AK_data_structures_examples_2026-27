@@ -38,9 +38,8 @@ public class DynamicArrayString {
         data - the item found in the array slot stated
      */
     public String get(int index){
-        if(index < 0 || index >= size){
-            throw new IndexOutOfBoundsException("Index " + index + " is outside bounds of array");
-        }
+        validateIndex(index);
+
         return data[index];
     }
 
@@ -83,6 +82,8 @@ public class DynamicArrayString {
 
      */
     public void add(int index, String toAdd){
+        validateString(toAdd);
+        validateIndex(index);
 
         System.arraycopy(data,index,data,index+1,(size-index));
 
@@ -101,6 +102,8 @@ public class DynamicArrayString {
         removed: the element that was removed
      */
     public String set(int index, String toAdd){
+        validateString(toAdd);
+        validateIndex(index);
 
         String removed = data[index];
         data[index] = toAdd;
@@ -116,6 +119,7 @@ public class DynamicArrayString {
         removed - the element that was removed
      */
     public String remove(int index){
+        validateIndex(index);
         String removed = data[index];
         for (int i = index; i < size - 1; i++) {
             data[i] = data[i + 1];
@@ -134,6 +138,7 @@ public class DynamicArrayString {
         count - the number of elements removed
      */
     public int removeAll(String target){
+        validateString(target);
         int count = 0;
         for (int i = 0; i < size;) {
             if(data[i].equals(target)){
@@ -195,7 +200,7 @@ public class DynamicArrayString {
     }
 
     private void validateIndex(int index){
-        if(index<0|index>=size){
+        if(index<0||index>=size){
             throw new IndexOutOfBoundsException("Index "+ index + " Is out of bounds of list");
         }
     }
