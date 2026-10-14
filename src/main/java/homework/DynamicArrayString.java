@@ -46,8 +46,10 @@ public class DynamicArrayString {
 
     /* find the index of which the target is at
 
-    args: target - the String the person is looking for
-    return: returns the index or -1 if not found
+    args:
+        target - the String the person is looking for
+    return:
+        returns the index or -1 if not found
      */
     public int indexOf(String target){
         for (int i = 0; i < size; i++) {
@@ -62,7 +64,8 @@ public class DynamicArrayString {
 
     /* adds the value (string) at the end of array with a capacity check
 
-    args: value - the string that should be added to end of the array
+    args:
+        value - the string that should be added to end of the array
      */
     public void add(String value){
         ensureCapacity();
@@ -71,6 +74,13 @@ public class DynamicArrayString {
         size++;
     }
 
+    /* adds the element (toAdd) to the specified location (index)
+
+    args:
+        index - the location to add it to
+        toAdd - the element to add
+
+     */
     public void add(int index, String toAdd){
 
         System.arraycopy(data,index,data,index+1,(size-index));
@@ -140,12 +150,21 @@ public class DynamicArrayString {
         return count;
     }
 
+    /* creats a new array with default settings and makes current one the same as new one, clearing the infomration
+
+
+     */
     public void clear(){
         DynamicArrayString clear = new DynamicArrayString();
         data = clear.data;
         size = 0;
     }
 
+    /* takes a copy of the current array, takes out the duplicates
+
+    return:
+        newArray - the new array without duplicates
+     */
     public DynamicArrayString deduplicate(){
         DynamicArrayString newArray = new DynamicArrayString();
         for (int i = 0; i < size; i++) {
@@ -160,6 +179,11 @@ public class DynamicArrayString {
     }
 
 
+    /* adds all the values of provided array into current one
+
+    args:
+        otherArray - the array of elements ot be added to current one
+     */
     public void join(String[] otherArray){
         for (int i = 0; i < otherArray.length; i++) {
             String current = otherArray[i];
