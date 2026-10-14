@@ -201,6 +201,9 @@ public class DynamicArrayString {
 
     /* checks if the index provided is within the array
 
+    args:
+        index - the index that needs to be check
+
     return:
         Error if outside array
      */
@@ -211,6 +214,9 @@ public class DynamicArrayString {
     }
 
     /* checks if the string provided is null
+
+    args:
+        element - the element that needs to be checked
 
     return:
         Error if null
