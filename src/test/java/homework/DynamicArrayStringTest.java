@@ -22,6 +22,7 @@ class DynamicArrayStringTest {
         assertEquals("B", myList.get(1));
     }
 
+
     @Test
     void removeAllNotInList(){
         DynamicArrayString myList = new DynamicArrayString();
