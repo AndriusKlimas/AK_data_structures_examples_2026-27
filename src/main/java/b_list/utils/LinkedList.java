@@ -77,16 +77,32 @@ public class LinkedList {
         return current.data;
     }
 
+    public int indexOf(String target){
+        if(target==null){
+            throw new IllegalArgumentException("Target cannot be null");
+        }
+        Node current = first;
+        for (int i = 0; i < size; i++) {
+            if (current.data.equals(target)) {
+                return i;
+            }
+            current = current.next;
+        }
+        return -1;
+    }
+
     public void add(String element, int index){
 
-        if(index<0||index>=size){
+        if(index<0||index>size){
             throw new IndexOutOfBoundsException("Index "+ index + " Is out of bounds of list");
         }
 
         Node newNode = new Node(element);
         if (index == 0) {
-            if(first !=null){
+            if(!isEmpty()){
                 newNode.next = first;
+            }else{
+                last = newNode;
             }
             first = newNode;
         }else {
@@ -104,6 +120,10 @@ public class LinkedList {
 
             newNode.next = current;
             prev.next = newNode;
+
+            if(index == size){
+                last=newNode;
+            }
         }
         size++;
     }
@@ -124,6 +144,7 @@ public class LinkedList {
             Node prev = null;
 
             for (int i = 0; i < index; i++) {
+                String deleted = current.data;
                 prev = current;
                 current = current.next;
             }
@@ -131,5 +152,25 @@ public class LinkedList {
         }
         size--;
 
+    }
+
+    public int removeValue(String target){
+        if(target==null){
+            throw new IllegalArgumentException("Target cannot be null");
+        }
+        int index = indexOf(target);
+        Node current = first;
+        Node prev = null;
+        if(index != -1){
+            for (int i = 0; i <= index; i++) {
+                String deleted = current.data;
+                prev = current;
+                current = current.next;
+            }
+            prev.next = current.next;
+        }
+
+        size--;
+        return index;
     }
 }
