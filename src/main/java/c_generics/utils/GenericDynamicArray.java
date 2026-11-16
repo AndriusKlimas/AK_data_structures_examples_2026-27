@@ -49,7 +49,7 @@ public class GenericDynamicArray<T> {
     public T remove(int index){
         validateIndex(index);
 
-        T removed = data[index];
+        T removed = (T)data[index];
 
         for (int i = index; i < size-1; i++) {
             data[i] = data[i+1];
@@ -100,7 +100,7 @@ public class GenericDynamicArray<T> {
     public T set(int index, T element){
         validateIndex(index);
 
-        T removed = data[index];
+        T removed = (T)data[index];
         data[index] = element;
 
         return removed;
@@ -112,7 +112,7 @@ public class GenericDynamicArray<T> {
         }
 
         if((data.length - size) < toBeJoined.size){
-            String[] temp = new String[size + toBeJoined.size];
+            Object[] temp = new Object[size + toBeJoined.size];
 
             System.arraycopy(data, 0, temp, 0, size);
 
@@ -124,7 +124,7 @@ public class GenericDynamicArray<T> {
     }
 
     public void clear(){
-        data = new String[10];
+        data = new Object[10];
         size = 0;
     }
 
@@ -142,7 +142,7 @@ public class GenericDynamicArray<T> {
 
         GenericDynamicArray<T> subset = new GenericDynamicArray<>();
         for (int i = startIndex; i < endIndex; i++) {
-            subset.add(data[i]);
+            subset.add((T)data[i]);
         }
 
         return subset;
@@ -164,7 +164,7 @@ public class GenericDynamicArray<T> {
 
         int subsetSize = endIndex - startIndex;
         if(subset.data.length < subsetSize){
-            subset.data = new String[subsetSize+10];
+            subset.data = new Object[subsetSize+10];
         }
 
         System.arraycopy(data, startIndex, subset.data, 0, subsetSize);
@@ -177,7 +177,7 @@ public class GenericDynamicArray<T> {
         GenericDynamicArray<T> result = new GenericDynamicArray<>();
 
         for (int i = 0; i < size; i++) {
-            String element = data[i];
+            T element = (T)data[i];
 
             if (result.indexOf(element) == -1) {
                 result.add(element);
@@ -197,7 +197,7 @@ public class GenericDynamicArray<T> {
 
         // While we haven't read through all elements originally in list
         while (read < size) {
-            T current = data[read];
+            T current = (T)data[read];
 
             // If this does not match the element being removed,
             // save it and move where we will write to next up a space
